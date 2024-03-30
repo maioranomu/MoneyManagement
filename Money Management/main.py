@@ -1,11 +1,7 @@
 import os
 from datetime import datetime
 
-run = True
-num = 0
-money = 0
-file = "import.txt"
-logfile = "log.txt"
+run, num, money, file, logfile = True, 0, 0, "import.txt", "log.txt"
 
 def cls():
     os.system("cls")
