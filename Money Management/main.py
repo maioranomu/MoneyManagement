@@ -21,7 +21,6 @@ with open(file, "r") as f:
         with open(file, "w") as f:
             f.write(str(money))
         
-
 def writer(ammount, op):
     global file
     global log
@@ -38,7 +37,6 @@ def writer(ammount, op):
         
     with open(file, "w") as f:
         f.write(str(ammount))    
-    
     
 def change(what, much = 0):
     global money
@@ -75,7 +73,6 @@ def main():
             num = input("Quanto você quer adicionar? [Q - CANCELAR] \n $")
             if num == "q":
                 break
-            
             try:
                 num = float(num)
                 change("add", num)
@@ -122,7 +119,6 @@ def main():
             print("Você tem muito dinheiro!")
         except OverflowError:
             print("Você tem muito dinheiro!")    
-        
         input("Aperte [ENTER] para sair.")
         
     elif do == "q":
