@@ -50,6 +50,30 @@ def change(what, much = 0):
         money = much
         writer(str(money), "=")
     
+def get_decimal_part(num):
+    num_str = str(num)
+    try:
+        if '.' in num_str:
+            decimal_index = num_str.index('.')
+            decimal_part = num_str[decimal_index + 1]
+            return decimal_part
+        else:
+            return None
+    except IndexError:
+        return None
+    
+def get_decimal_part2(num):
+    num_str = str(num)
+    try:
+        if '.' in num_str:
+            decimal_index = num_str.index('.')
+            decimal_part = num_str[decimal_index + 2]
+            return decimal_part
+        else:
+            return None
+    except IndexError:
+        return None
+    
 def main():
     global run
     global num
@@ -110,9 +134,32 @@ def main():
     elif do == "s":
         cls()
         try:
+            print(f"Saldo: {money} \n")
             seemoney = "*" * int(money)
             print("Cada moeda é 1 real:")
+            
+            print("\n")
             print(seemoney)
+            print("\n")
+            
+            print("Cada moeda é 10 centavos:")
+            print("\n")
+            try:
+                deccents = "." * int(get_decimal_part(money))
+                print(deccents)
+                print("\n")
+            except TypeError:
+                print("")
+            
+            print("Cada moeda é 1 centavo:")
+            print("\n")
+            try:
+                cents = "." * int(get_decimal_part2(money))
+                print(cents)
+                print("\n")
+            except TypeError:
+                print("")
+            
         except MemoryError:
             print("Você tem muito dinheiro!")
         except OverflowError:
