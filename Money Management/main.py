@@ -16,6 +16,7 @@ with open(file, "r") as f:
         with open(file, "w") as f:
             f.write(str(money))
         
+
 def writer(ammount, op):
     global file
     global log
@@ -32,6 +33,7 @@ def writer(ammount, op):
         
     with open(file, "w") as f:
         f.write(str(ammount))    
+    
     
 def change(what, much = 0):
     global money
@@ -52,15 +54,15 @@ def main():
     global run
     global num
     cls()
-    actionlist = ["1", "2" ,"3", "s", "q"]
+    actionlist = ["1", "2" ,"3", "s", "q", "h"]
     do = ""
     
     while do not in actionlist:
         cls()
-        print(f"                              Saldo atual: R${money: .2f}")
-        print("[1-ADICIONAR SALDO | 2-REMOVER SALDO | 3-ALTERAR SALDO | S-VER DINHEIRO | Q-SAIR]")
-        print("---------------------------------------------------------------------------------")
-        do = input("\n \n \n                                     ").lower()
+        print(f"                                   Saldo atual: R${money: .2f}")
+        print("[1-ADICIONAR SALDO | 2-REMOVER SALDO | 3-ALTERAR SALDO | S-VER DINHEIRO | H-HISTORICO | Q-SAIR]")
+        print("-----------------------------------------------------------------------------------------------")
+        do = input("\n \n \n                                          ").lower()
         
     if do == "1":
         cls()
@@ -68,6 +70,7 @@ def main():
             num = input("Quanto você quer adicionar? [Q - CANCELAR] \n $")
             if num == "q":
                 break
+            
             try:
                 num = float(num)
                 change("add", num)
@@ -114,7 +117,14 @@ def main():
             print("Você tem muito dinheiro!")
         except OverflowError:
             print("Você tem muito dinheiro!")    
+        
         input("Aperte [ENTER] para sair.")
+    
+    elif do == "h":
+        cls()
+        with open(logfile, "r") as f:
+            print(f.read())
+            input("Aperte [ENTER] para sair.")
         
     elif do == "q":
         cls()
