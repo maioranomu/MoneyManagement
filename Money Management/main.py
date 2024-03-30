@@ -1,7 +1,6 @@
 import os
 from datetime import datetime
 
-date = datetime.now()
 run = True
 num = 0
 money = 0
