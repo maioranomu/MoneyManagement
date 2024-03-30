@@ -26,9 +26,9 @@ def writer(ammount, op):
     with open(logfile, "a") as f:
         date = datetime.now()
         if log == "":
-            f.write(f"Time: {date} | Change: {op}{num} Current: {money: .2f} | Log: Empty log")
+            f.write(f"Time: {date} | Change: {op}{num} | Current: {money: .2f} | Log: Empty log")
         else:
-            f.write(f"Time: {date} | Change: {op}{num} Current: {money: .2f} | Log: {log}")
+            f.write(f"Time: {date} | Change: {op}{num} | Current: {money: .2f} | Log: {log}")
         f.write("\n")
         
     with open(file, "w") as f:
