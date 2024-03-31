@@ -134,7 +134,7 @@ def main():
     elif do == "s":
         cls()
         try:
-            print(f"Saldo: {money} \n")
+            print(f"Saldo: {round(money, 2)} \n")
             seemoney = "*" * int(money)
             print("Cada moeda é 1 real:")
             
